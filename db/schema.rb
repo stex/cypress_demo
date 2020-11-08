@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_06_190243) do
+ActiveRecord::Schema.define(version: 2020_11_08_134717) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2020_11_06_190243) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "liking_user_id"
+    t.integer "liked_post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["liked_post_id"], name: "index_likes_on_liked_post_id"
+    t.index ["liking_user_id"], name: "index_likes_on_liking_user_id"
   end
 
   create_table "posts", force: :cascade do |t|

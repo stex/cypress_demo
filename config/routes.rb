@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root "posts#index"
 
-  resources :posts
+  resources :posts do
+    resource :like, only: [:create, :destroy]
+  end
   resource :session, only: [:new, :create, :destroy]
 end

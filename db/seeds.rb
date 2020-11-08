@@ -6,4 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-FactoryBot.create_list(:post, 3)
+FactoryBot.create_list(:user, 10)
+
+20.times do
+  FactoryBot.create(:post, author: User.all.sample).then do |post|
+    rand(5).times do
+      FactoryBot.create(:like, liked_post: post, liking_user: User.all.sample)
+    end
+  end
+end

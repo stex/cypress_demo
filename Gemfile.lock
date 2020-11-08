@@ -78,6 +78,8 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    cypress-on-rails (1.8.0)
+      rack
     diff-lcs (1.4.4)
     erubi (1.9.0)
     factory_bot (6.1.0)
@@ -244,6 +246,7 @@ DEPENDENCIES
   bootstrap4-kaminari-views
   byebug
   capybara (>= 2.15)
+  cypress-on-rails (~> 1.8)
   factory_bot_rails
   faker
   jbuilder (~> 2.7)

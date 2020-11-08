@@ -1,9 +1,32 @@
 <div class="card mb-3">
   <div class="card-header">
     <%= post.title %>
-    <i>by <%= post.author.email %></i>
+    <% if logged_in? %>
+      <span class="float-right">
+        <% if post.liked_by?(current_user) %>
+          <%= link_to [post, :like], method: :delete, title: "Remove Like" do %>
+            <i class="fas fa-heart text-danger"></i>
+          <% end %>
+        <% else %>
+          <%= link_to [post, :like], method: :post, title: "Like Post" do %>
+            <i class="far fa-heart text-danger"></i>
+          <% end %>
+        <% end %>
+      </span>
+    <% end %>
   </div>
   <div class="card-body">
     <%= post.body %>
+  </div>
+  <div class="card-footer">
+    <i>by <%= post.author.email %></i>
+    <% if post.likes.present? %>
+      <span class="float-right">
+        Liked by <i><%= post.likes.last.liking_user.email %></i>
+        <% if post.likes.count > 1 %>
+          and <%= pluralize(post.likes.count - 1, "other") %>
+        <% end %>
+      </span>
+    <% end %>
   </div>
 </div>

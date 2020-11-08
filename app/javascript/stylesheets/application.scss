@@ -1,4 +1,10 @@
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+
 @import "~bootstrap/dist/css/bootstrap";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';
 
 body {
   background-color: #2E2F30;
