@@ -1,6 +1,10 @@
 {
   "name": "cypress_demo",
   "private": true,
+  "scripts": {
+    "cypress:rails": "RAILS_ENV=test bin/rails s -p 5017",
+    "cypress:open": "yarn cypress open --project=./spec"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@rails/actioncable": "^6.0.0",
@@ -17,6 +21,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "cypress": "^5.5.0",
+    "cypress-file-upload": "^4.1.1",
     "webpack-dev-server": "^3.11.0"
   }
 }

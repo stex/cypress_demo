@@ -6,7 +6,10 @@ class Post < ApplicationRecord
   has_many :liking_users, through: :likes, class_name: "User"
 
   validates :title,
-            presence: true
+    presence: true
+
+  validates :body,
+    presence: true
 
   def liked_by?(user)
     likes.where(liking_user: user).exists?

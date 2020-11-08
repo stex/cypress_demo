@@ -1,5 +1,12 @@
 <header>
-  <h1>Posts</h1>
+  <h1>
+    Posts
+    <% if logged_in? %>
+      <%= link_to new_post_path, class: "btn btn-primary btn-lg float-right", title: "Add Post" do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+    <% end %>
+  </h1>
 </header>
 
 <%= render @posts %>

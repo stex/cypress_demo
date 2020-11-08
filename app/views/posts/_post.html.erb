@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-3" id="<%= dom_id(post) %>">
   <div class="card-header">
     <%= post.title %>
     <% if logged_in? %>
@@ -10,6 +10,11 @@
         <% else %>
           <%= link_to [post, :like], method: :post, title: "Like Post" do %>
             <i class="far fa-heart text-danger"></i>
+          <% end %>
+        <% end %>
+        <% if post.author == current_user %>
+          <%= link_to post, method: :delete do %>
+            <i class="fas fa-trash-o"></i>
           <% end %>
         <% end %>
       </span>
