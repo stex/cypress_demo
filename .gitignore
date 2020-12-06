@@ -41,3 +41,5 @@ yarn-debug.log*
 .yarn-integrity
 
 .rbenv-gemsets
+
+spec/cypress/videos

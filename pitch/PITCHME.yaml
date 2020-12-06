@@ -1,0 +1,22 @@
+# GitPitch 4.0 Slide Deck
+gitpitch: 4.0
+
+#code-line-numbers: true
+
+theme-override: assets/css/custom-theme.css
+
+# Slide Deck Metadata
+title : "Cypress on Rails"
+description : "Overview over the Cypress Testing Framework and Integration into a Ruby on Rails Application"
+
+theme-background: [ "#1B1B1B" ]
+theme-headline: [ "Montserrat", "#EC4D37", "none", "#FFFFFF", "100", "120", "15" ]
+theme-byline: [ "Montserrat", "#FFFFFF", "none", "#EC4D37", "100", "110", "15" ]
+theme-text: [ "Roboto", "#FFFFFF", "none", "#EC7F37", "112", "175", "20" ]
+theme-links: [ "#5289F7", "#5254F7" ]
+theme-code: [ "Source Code Pro", "100", "120" ]
+highlight: railscasts
+theme-controls: [ "#C0C0C0" ]
+theme-margins: [ "0", "15px" ]
+layout: center
+background-opacity: 100

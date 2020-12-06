@@ -4,7 +4,7 @@ describe('Likes', function() {
         cy.factory('user').as('author');
     })
 
-    context('when I alraedy liked a post', function() {
+    context('when I already liked a post', function() {
         beforeEach(function() {
             cy.factory('post', [], { author_identifier: this.author.gid, liking_users_identifiers: [this.user.gid] }).as('post');
             cy.login(this.user);

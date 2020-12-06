@@ -71,10 +71,6 @@ Cypress.Commands.add('factory', (type, traits = [], attributes = {}) =>
 Cypress.Commands.add('factoryList', (type, amount, traits = [], attributes = {}) =>
     internalFactory('create_list', type, amount, ...traits, attributes)
 );
-
-Cypress.Commands.add('appFixtures', function (options) {
-  cy.app('activerecord_fixtures', options)
-});
 // CypressOnRails: end
 
 // The next is optional
