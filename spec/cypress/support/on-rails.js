@@ -2,7 +2,7 @@ const internalFactory = function(...options) {
   return cy.app('factory_bot', options).then(r => r[0]);
 };
 
-// CypressDev: don't remove these command
+// CypressDev: don't remove these commands
 Cypress.Commands.add('appCommands', function(body) {
   cy.log("APP: " + JSON.stringify(body));
   return cy.request({
