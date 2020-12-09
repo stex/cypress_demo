@@ -539,3 +539,16 @@ end
 - Usage in CI (with paralellization)
 - How to organize/build spec files
 - Something else?
+
+---
+
+[drag=100, drop=0, bg=assets/img/title.jpg]
+
+The demo application can be found at https://github.com/stex/cypress_demo
+It contains the same test suite once in Capybara (if possible) and in Cypress
+
+---
+
+[drag=100, drop=0, bg=assets/img/capybara.png]
+
+# Thanks!
