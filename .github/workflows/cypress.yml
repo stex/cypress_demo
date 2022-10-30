@@ -1,9 +1,5 @@
 name: cypress
 on: [push]
-env:
-  REGISTRY: ghcr.io
-  RAILS_IMAGE_DEV: cypress-demo-rails-dev
-  CYPRESS_IMAGE: cypress-demo-cypress
 
 jobs:
   build-rails-dev:
@@ -32,7 +28,7 @@ jobs:
           context: .
           push: true
           file: Dockerfile.dev
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.RAILS_IMAGE_DEV }}:${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}/rails-dev:${{ github.sha }}
 
   build-cypress:
     runs-on: ubuntu-latest
@@ -59,7 +55,7 @@ jobs:
         with:
           context: cypress
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.CYPRESS_IMAGE }}:${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}/cypress:${{ github.sha }}
 
   run-rails-tests:
     runs-on: ubuntu-latest
@@ -69,7 +65,7 @@ jobs:
     defaults:
       run:
         working-directory: /app
-    container: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.RAILS_IMAGE_DEV }}:${{ github.sha }}
+    container: ghcr.io/${{ github.repository }}/rails-dev:${{ github.sha }}
     needs: [build-rails-dev]
     steps:
       - bundle exec rake db:setup
