@@ -30,6 +30,9 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
+gem "rodauth-rails", "~> 1.6"
+gem "bootstrap", "~> 5.2"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -53,6 +56,8 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
   gem "cypress-on-rails", "~> 1.13"
+
+  gem "factory_bot_rails", "~> 6.2"
 end
 
 group :development do

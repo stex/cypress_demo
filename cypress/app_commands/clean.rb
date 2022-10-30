@@ -7,8 +7,6 @@ else
   Post.delete_all if defined?(Post)
 end
 
-CypressOnRails::SmartFactoryWrapper.reload
-
 if defined?(VCR)
   VCR.eject_cassette # make sure we no cassette inserted before the next test starts
   VCR.turn_off!
