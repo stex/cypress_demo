@@ -83,6 +83,7 @@ jobs:
       rails:
         image: ghcr.io/${{ github.repository }}/rails-dev:${{ github.sha }}
         env:
+          RAILS_ENV: test
           CYPRESS: 1
     container: ghcr.io/${{ github.repository }}/cypress:${{ github.sha }}
     needs: [ build-rails-dev, build-cypress ]
