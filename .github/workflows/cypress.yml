@@ -61,4 +61,19 @@ jobs:
           push: true
           tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.CYPRESS_IMAGE }}:${{ github.sha }}
 
+  run-rails-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    defaults:
+      run:
+        working-directory: /app
+    container: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.RAILS_IMAGE_DEV }}:${{ github.sha }}
+    needs: [build-rails-dev]
+    steps:
+      - bundle exec rake db:setup
+      - bundle exec rake db:test
+
+
 
