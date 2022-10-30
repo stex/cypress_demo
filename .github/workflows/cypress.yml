@@ -32,7 +32,7 @@ jobs:
           context: .
           push: true
           file: Dockerfile.dev
-          tags: ${{ env.RAILS_IMAGE_DEV }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.RAILS_IMAGE_DEV }}:${{ github.sha }}
 
   build-cypress:
     runs-on: ubuntu-latest
@@ -59,7 +59,6 @@ jobs:
         with:
           context: cypress
           push: true
-          file: Dockerfile
-          tags: ${{ env.CYPRESS_IMAGE }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.CYPRESS_IMAGE }}:${{ github.sha }}
 
 
