@@ -1,6 +1,10 @@
 name: cypress
 on: [push]
 
+defaults:
+  run:
+    working-directory: /app
+
 jobs:
   build-rails-dev:
     runs-on: ubuntu-latest
@@ -61,9 +65,6 @@ jobs:
     permissions:
       contents: read
       packages: read
-    defaults:
-      run:
-        working-directory: /app
     container: ghcr.io/${{ github.repository }}/rails-dev:${{ github.sha }}
     needs: [build-rails-dev]
     steps:
@@ -75,14 +76,12 @@ jobs:
     permissions:
       contents: read
       packages: read
-    defaults:
-      run:
-        working-directory: /app
+    env:
+      BASE_URL: rails:3000
     services:
       rails:
         image: ghcr.io/${{ github.repository }}/rails-dev:${{ github.sha }}
         env:
-          BASE_URL: rails:3000
           CYPRESS: 1
     container: ghcr.io/${{ github.repository }}/cypress:${{ github.sha }}
     needs: [ build-rails-dev, build-cypress ]
