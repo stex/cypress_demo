@@ -15,4 +15,5 @@ COPY ./ ./
 # Expose ports for cypress during CI
 EXPOSE 3000
 
+ENTRYPOINT /app/docker-entrypoint.dev.sh
 CMD ["/bin/bash"]

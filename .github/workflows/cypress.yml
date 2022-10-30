@@ -69,7 +69,27 @@ jobs:
     needs: [build-rails-dev]
     steps:
       - run: bundle exec rake db:setup
-      - run: bundle exec rake db:test
+      - run: bundle exec rake test
 
+
+  run-cypress:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    defaults:
+      run:
+        working-directory: /app
+    services:
+      rails:
+        image: ghcr.io/${{ github.repository }}/rails-dev:${{ github.sha }}
+        env:
+          BASE_URL: rails:3000
+          CYPRESS: 1
+    container: ghcr.io/${{ github.repository }}/cypress:${{ github.sha }}
+    needs: [ build-rails-dev, build-cypress ]
+    steps:
+      - run: bundle exec rake db:setup
+      - run: bundle exec rake test
 
 
