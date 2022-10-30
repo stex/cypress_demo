@@ -68,8 +68,8 @@ jobs:
     container: ghcr.io/${{ github.repository }}/rails-dev:${{ github.sha }}
     needs: [build-rails-dev]
     steps:
-      - bundle exec rake db:setup
-      - bundle exec rake db:test
+      - run: bundle exec rake db:setup
+      - run: bundle exec rake db:test
 
 
 
