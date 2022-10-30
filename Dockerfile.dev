@@ -5,6 +5,23 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
   libvips
 RUN rm -rf /var/lib/apt/lists/*
 
+# Install nodenv
+ENV PATH="/root/.nodenv/bin:/root/.nodenv/shims:$PATH"
+RUN git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+RUN echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
+RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
+RUN nodenv init -
+RUN mkdir -p "$(nodenv root)"/plugins
+RUN git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
+
+# Ensure that the installation worked...
+RUN curl -fsSL https://github.com/nodenv/nodenv-installer/raw/master/bin/nodenv-doctor | bash
+
+# Install the specified node version
+COPY ./.node-version ./.node-version
+RUN nodenv install $(cat .node-version)
+RUN nodenv global $(cat .node-version)
+
 # Install gems
 COPY ./Gemfile ./Gemfile.lock ./
 RUN bundle config set --local path '/gems'
