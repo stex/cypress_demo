@@ -1,0 +1,18 @@
+FROM ruby:3.1.2
+WORKDIR /app
+
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
+  libvips
+RUN rm -rf /var/lib/apt/lists/*
+
+# Install gems
+COPY ./Gemfile ./Gemfile.lock ./
+RUN bundle config set --local path '/gems'
+RUN bundle install
+
+COPY ./ ./
+
+# Expose ports for cypress during CI
+EXPOSE 3000
+
+CMD ["/bin/bash"]

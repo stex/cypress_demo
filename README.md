@@ -1,45 +1,24 @@
 # README
 
-This is a demo application accompanying a short talk about one way to use
-cypress with a Ruby on Rails application and comparing it to capybara.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-The slides can be found here: https://stex.codes/programming/2020/12/09/cypress-on-rails-talk.html
+Things you may want to cover:
 
-## Usage
+* Ruby version
 
-### Rails Application
+* System dependencies
 
-If you just want to try out the Rails application, just install the dependencies, setup the database and start the server in development mode:
+* Configuration
 
-```bash
-bundle install
-yarn install
+* Database creation
 
-rake db:setup
-rails s
-```
+* Database initialization
 
-The seed users have email addresses in the format `user_N@example.com` with the password `12345678`.
+* How to run the test suite
 
-### Capybara Tests
+* Services (job queues, cache servers, search engines, etc.)
 
-The capybara tests are ran using RSpec:
+* Deployment instructions
 
-```bash
-rspec spec/features
-```
-
-You might have to set up the test database first:
-
-```bash
-rake db:test:prepare
-```
-
-### Cypress Tests
-
-To run the cypress tests, you need both a Rails server in `test` environment and the actual cypress runner. I created helper scripts in the project's `package.json` to make this a bit easier:
-
-```bash
-yarn cypress:rails
-yarn cypress:open
-```
+* ...

@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  root "posts#index"
-
-  resources :posts do
-    resource :like, only: [:create, :destroy]
-  end
-  resource :session, only: [:new, :create, :destroy]
+  # Defines the root path route ("/")
+  # root "articles#index"
 end
