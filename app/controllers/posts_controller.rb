@@ -17,6 +17,22 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = current_account.posts.find(params[:id])
+  end
+
+  def update
+    @post = current_account.posts.find(params[:id])
+
+    if @post.update(permitted_attributes)
+      render partial: "post", object: @post
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  private
+
   def permitted_attributes
     params.require(:post).permit(:title, :content)
   end

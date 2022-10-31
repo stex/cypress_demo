@@ -1,0 +1,2 @@
+<%= turbo_stream.replace :new_post, template: "posts/new", locals: {post: Post.new} %>
+<%= turbo_stream.after :new_post, partial: "post", object: @post %>

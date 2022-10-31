@@ -1,0 +1,6 @@
+<div class="form-floating mb-2">
+  <%= f.text_field :title, class: "form-control", placeholder: Post.human_attribute_name(:title) %>
+  <%= f.label :title, class: "form-label" %>
+</div>
+
+<%= f.rich_text_area :content, class: "form-control", placeholder: Post.human_attribute_name(:content) %>

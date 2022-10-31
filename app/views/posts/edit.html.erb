@@ -1,7 +1,7 @@
-<%= turbo_frame_tag :new_post do %>
+<%= turbo_frame_tag @post do %>
   <div class="card">
-    <%= form_for post ||= @post do |f| %>
-      <div class="card-header">New Post</div>
+    <%= form_for @post do |f| %>
+      <div class="card-header">Edit Post</div>
       <div class="card-body">
         <%= render partial: "form_fields", locals: {f: f} %>
       </div>
