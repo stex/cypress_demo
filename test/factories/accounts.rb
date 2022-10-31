@@ -11,10 +11,6 @@ FactoryBot.define do
     sequence(:email) { |n| "user#{rand(10000) + n}@example.com" }
     password { "12345678" }
 
-    trait :admin do
-      admin { true }
-    end
-
     trait :verified do
       after(:create) do |account|
         RodauthApp.rodauth.verify_account(account_id: account.id)

@@ -58,6 +58,8 @@ group :development, :test do
   gem "cypress-on-rails", "~> 1.13"
 
   gem "factory_bot_rails", "~> 6.2"
+
+  gem "faker", "~> 2.23"
 end
 
 group :development do

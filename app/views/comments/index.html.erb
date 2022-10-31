@@ -1,0 +1,5 @@
+<%= turbo_frame_tag dom_id(post, :comments) do %>
+  <div class="list-group">
+    <%= render @comments %>
+  </div>
+<% end %>

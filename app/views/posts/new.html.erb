@@ -1,0 +1,24 @@
+<%= turbo_frame_tag :new_post do %>
+  <div class="card">
+    <%= form_for @post do |f| %>
+      <div class="card-header">New Post</div>
+      <div class="card-body">
+
+        <div class="form-floating mb-2">
+          <%= f.text_field :title, class: "form-control", placeholder: Post.human_attribute_name(:title) %>
+          <%= f.label :title, class: "form-label" %>
+        </div>
+
+        <div class="form-floating">
+          <%= f.text_area :content, class: "form-control", placeholder: Post.human_attribute_name(:content), style: "height: 150px;" %>
+          <%= f.label :content, class: "form-label" %>
+        </div>
+
+      </div>
+      <div class="card-footer d-flex justify-content-end">
+        <%= link_to "Cancel", [:new, :post], class: "btn btn-link" %>
+        <%= f.submit nil, class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

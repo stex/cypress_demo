@@ -1,1 +1,7 @@
-asdf
+<div class="row row-cols-2 g-3">
+  <% if current_account %>
+    <%= turbo_frame_tag :new_post, class: "col", src: [:new, :post] %>
+  <% end %>
+
+  <%= render @posts %>
+</div>
