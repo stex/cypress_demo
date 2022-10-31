@@ -4,5 +4,6 @@ FactoryBot.define do
 
     key { SecureRandom.urlsafe_base64(32) }
     email_last_sent { 1.day.ago }
+    requested_at { email_last_sent }
   end
 end
