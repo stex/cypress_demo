@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CypressFactoryBot
   attr_reader :factory_method, :model_name, :args
 

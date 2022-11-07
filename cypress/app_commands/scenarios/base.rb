@@ -1,7 +1,7 @@
 require "json"
 
 class AppScenarioBase
-  FIXTURE_PATH = Rails.root.join("spec", "cypress", "fixtures")
+  FIXTURE_PATH = Rails.root.join("cypress", "fixtures")
 
   def generate
     scenario.yield_self do |result|
@@ -18,7 +18,7 @@ class AppScenarioBase
   # @param [Hash, Array<Hash>] json The current JSON hash
   # @return [Hash, Array<Hash>] The new JSON
   #
-  def adjust_response_json(result, json)
+  def adjust_response_json(_result, json)
     json
   end
 
