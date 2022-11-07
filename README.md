@@ -3,8 +3,10 @@
 # Cypress on Rails Demo
 
 This repo contains a demo application with examples on how to use 
-the [`cypress-on-rails`](https://github.com/shakacode/cypress-on-rails) gem
-and a corresponding presentation.
+the [`cypress-on-rails`](https://github.com/shakacode/cypress-on-rails) gem,
+locally and with a custom docker image in CI.
+
+A corresponding presentation can be found in the `pitch` folder
 
 ## Commands
 
