@@ -10,8 +10,9 @@ and a corresponding presentation.
 
 Run Cypress Tests
 
-    $> RAILS_ENV=test bin/rails s
-    $> yarn --cwd cypress run cypress open
+    RAILS_ENV=test bin/rails s
+    yarn --cwd cypress run cypress open
 
 Run Capybara Tests
-    $> RAILS_ENV=test bin/rails test test/system
+
+    RAILS_ENV=test bin/rails test test/system
